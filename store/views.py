@@ -9,7 +9,7 @@ from .serializers import BookSerializer, AuthorsSerializer, testSerializer, test
 
 @api_view(['GET'])
 def home(req):
-    return Response({'msg':"Welcome.... this is the home page"})
+    return Response({'msg':"Welcome.... this is the home route"})
 
 # ----------------------- Books Views ---------------------------
 
@@ -113,10 +113,8 @@ def deleteAuthor(req, author):
 def author_view(req):
     if req.method == 'GET':
         return allAuthors(req)
-        # return Response({"msg":"all authors"})
     if req.method == 'POST':
         return addAuthor(req)
-        # return Response({"msg":"post authors"})
 
 @api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
 def author_view2(req):
@@ -151,9 +149,7 @@ def test_post_view(req):
 def test(req):
     if req.method == 'GET':
         return test_get_view(req)
-        #return Response({"message":"This is a get request"})
     if req.method == 'POST':
         return test_post_view(req)
-        #return Response({"message":"This is a post request"})
     else:
         return Response({"message":req.method})
